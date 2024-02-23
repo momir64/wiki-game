@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@font-face {
+    font-family: LinLibertine;
+    src: url(LinLibertine_aS.ttf);
+}
+
+html,
+body {
+    background-color: #1f1f1f;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    height: 100dvh;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+h1 {
+    color: white;
+    font-family: LinLibertine;
+    margin: auto;
+    font-size: 6.2vh;
+    line-height: 11vh;
+    vertical-align: middle;
+}
+
+#header {
+    background-color: #3c3c3c;
+    justify-content: center;
+    text-align: center;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+}
+
+#counter {
+    position: fixed;
+    top: 13vh;
+    left: 2vh;
+}
+
+#articleCount {
+    vertical-align: middle;
+    font-family: "Roboto";
+    position: absolute;
+    font-size: 3.5vh;
+    line-height: 5vh;
+    margin-left: 6vh;
+    color: white;
+}
+
+#countSvg {
+    position: absolute;
+    fill: #999;
+    height: 5vh;
+    width: 5vh;
+    top: 0;
+}
+
+#footer {
+    background-color: #3c3c3c;
+    justify-content: center;
+    text-align: center;
+    position: fixed;
+    width: 100vw;
+    bottom: 0;
+}
+
+button {
+    background-color: transparent;
+    border-color: transparent;
+    margin-right: 14vw;
+    margin-left: 14vw;
+    height: 10.5vh;
+}
+
+.pageSvg {
+    width: 5vh;
+    height: 5vh;
+    fill: #999;
+}
+
+.pageSvg:hover,
+#pickSvg {
+    fill: white;
+}
+
+#pickerPage {
+    text-align: center;
+    position: fixed;
+    top: 27vh;
+}
+
+.pickerButtons {
+    background-color: #3c3c3c;
+    border-radius: 2vh;
+    margin-top: 3vh;
+    height: 8vh;
+    width: 60vw;
+    font-family: "Roboto";
+    font-size: 2.5vh;
+    color: white;
+}
+
+.pickerButtons:hover {
+    background-color: #4e4e4e;
+}
+
+#pickedArticle {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: auto;
+    font-family: "Roboto";
+    color: white;
+    margin-bottom: 8vh;
+    font-size: 4vh;
+    height: 20vh;
+    width: 60vw;
+}

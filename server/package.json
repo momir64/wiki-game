@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "ws": "^8.16.0"
+  },
+  "name": "wiki-game-server",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Momir Stanišić",
+  "license": "ISC",
+  "description": ""
+}
