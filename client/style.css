@@ -1,25 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @font-face {
-    font-family: LinLibertine;
     src: url(LinLibertine_aS.ttf);
+    font-family: LinLibertine;
 }
 
 html,
 body {
     background-color: #1f1f1f;
+    height: 100dvh;
     padding: 0;
     margin: 0;
-    height: 100dvh;
 }
 
 h1 {
-    color: white;
     font-family: LinLibertine;
-    margin: auto;
-    font-size: 5.5dvh;
-    line-height: 10dvh;
     vertical-align: middle;
+    line-height: 10dvh;
+    font-size: 5.5dvh;
+    color: white;
+    margin: auto;
 }
 
 #header {
@@ -72,9 +72,9 @@ h1 {
 }
 
 .pageSvg {
-    width: 4dvh;
-    height: 4dvh;
     fill: #999;
+    height: 4dvh;
+    width: 4dvh;
 }
 
 .pageSvg:hover,
@@ -90,9 +90,9 @@ h1 {
 
 .pickerButtons {
     background-color: #3c3c3c;
+    border-color: #999;
     border-radius: 2dvh;
     border-style: solid;
-    border-color: #999;
     margin-top: 3dvh;
     height: 8dvh;
     width: 60vw;
@@ -101,6 +101,7 @@ h1 {
     color: white;
 }
 
+.addButtons:active,
 .pickerButtons:active {
     background-color: #4e4e4e;
 }
@@ -119,59 +120,51 @@ h1 {
 }
 
 #addPage {
-    width: calc(100vw - 3.9dvh);
+    width: calc(100vw - 3dvh);
     text-align: center;
     position: fixed;
     display: none;
-    left: 1.8dvh;
+    left: 1.5dvh;
     top: 12dvh;
 }
 
 iframe {
-    height: 69.5dvh;
-    width: 100%;
+    height: calc(100dvh - 22.5dvh - max(42px, 6dvh) - 16px);
+    border-radius: max(8px, 1dvh);
+    width: calc(100% - 4px);
     border-color: #999;
     border-style: solid;
-    border-radius: max(8px, 1dvh);
 }
 
 #addDiv {
-    vertical-align: middle;
+    justify-content: space-between;
     margin-top: 1.5dvh;
+    display: flex;
 }
 
 input {
-    vertical-align: middle;
-    padding-left: 10px;
-    margin-right: max(10px, 1dvh);
-    margin-left: max(10px, 1dvh);
-    width: calc(98vw - max(140px, 20dvh) - 8px);
+    margin-right: calc(1.5dvh + 2px);
+    margin-left: calc(1.5dvh + 2px);
     border-radius: max(8px, 1dvh);
-    height: max(35px, 5.2dvh);
     background-color: #3c3c3c;
     border-color: #999;
     border-style: solid;
+    padding-left: 10px;
     color: white;
+    flex-grow: 1;
+    width: 0;
 }
 
 input:focus {
-    border: transparent;
-}
-
-#addSvg {
-    fill: #999;
-    vertical-align: middle;
+    outline: none;
 }
 
 #addPageSvg {
     fill: #999;
-    height: 4dvh;
-    width: 4dvh;
 }
 
-#addButton {
+.addButtons {
     background-color: #3c3c3c;
-    vertical-align: middle;
     border-color: #999;
     border-style: solid;
     border-radius: max(8px, 1dvh);
@@ -179,17 +172,7 @@ input:focus {
     width: max(42px, 6dvh);
 }
 
-#refreshButton {
-    border-radius: max(8px, 1dvh);
-    background-color: #3c3c3c;
-    height: max(42px, 6dvh);
-    width: max(42px, 6dvh);
-    vertical-align: middle;
-    border-color: #999;
-    border-style: solid;
-}
-
-#refreshSvg {
+.addSvgs {
     vertical-align: middle;
     fill: #999;
 }
