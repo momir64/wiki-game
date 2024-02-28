@@ -1,4 +1,4 @@
-var socket = new WebSocket('ws://192.168.0.10:8771');
+var socket = new WebSocket('wss://wswiki.moma.rs');
 var firstTimeQueue = true;
 var firstTimeGet = true;
 const separator = '$'
@@ -33,7 +33,7 @@ socket.onmessage = function (event) {
     } else if (parts[0] == 'queue') {
         document.getElementById('articleCount').textContent = parts[1];
         if (firstTimeQueue && parts[1] !== '0') {
-            document.getElementById('pickedArticle').textContent = 'Pick article from the queue';
+            document.getElementById('pickedArticle').textContent = 'Pick article from queue';
             firstTimeQueue = false;
         }
     }
