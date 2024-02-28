@@ -60,8 +60,10 @@ wss.on('connection', (ws) => {
       // else console.log(`Already in queue: ${parts[1]}`);
     } else if (parts[0] == 'pick') {
       let article = queue.length > 0 ? queue.splice(Math.floor(Math.random() * queue.length), 1)[0] : "Queue is empty!";
-      // console.log(`Send: pick${separator}${article}`);
-      ws.send(`pick${separator}${article}`);
+      clients.forEach(client => {
+        // console.log(`Send: pick${separator}${article}`);
+        client.send(`pick${separator}${article}`);
+      });
       update_queue();
     } else if (parts[0] == 'clear') {
       // console.log("Queue cleared!");
