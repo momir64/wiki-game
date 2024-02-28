@@ -1,41 +1,54 @@
-var socket = new WebSocket('ws://localhost:8771');
-const separator = "$"
-var article = "";
+var socket = new WebSocket('ws://192.168.0.10:8771');
+var firstTimeQueue = true;
+var firstTimeGet = true;
+const separator = '$'
+var article = '';
+
+function getNameFromUrl(url) {
+    return decodeURI(url.split('/').pop()).replaceAll('_', ' ');
+}
+
+function setArticle() {
+    document.getElementById('frame').contentWindow.location.replace(article);
+    document.getElementById('articleName').value = getNameFromUrl(article);
+}
 
 window.onpopstate = function () {
-    alert("clicked back button");
+    article = history.state;
+    setArticle();
 };
-history.pushState({}, '');
 
 socket.onmessage = function (event) {
     parts = event.data.split(separator)
     if (parts[0] == 'get') {
         article = parts[1];
-        document.getElementById("frame").contentWindow.location.replace(article);
-        document.getElementById("articleName").value = decodeURI(article.split('/').pop()).replaceAll('_', ' ');
-
-
-    } else if (parts[0] == 'add') {
-
-
+        setArticle();
+        if (firstTimeGet) {
+            history.replaceState(article, '');
+            firstTimeGet = false;
+        } else
+            history.pushState(article, '');
     } else if (parts[0] == 'pick') {
-
-
+        document.getElementById('pickedArticle').textContent = getNameFromUrl(parts[1]);
     } else if (parts[0] == 'queue') {
-        document.getElementById("articleCount").textContent = parts[1];
+        document.getElementById('articleCount').textContent = parts[1];
+        if (firstTimeQueue && parts[1] !== '0') {
+            document.getElementById('pickedArticle').textContent = 'Pick article from the queue';
+            firstTimeQueue = false;
+        }
     }
 };
 
 function pickFromQueue() {
-    socket.send("pick");
+    socket.send('pick');
 }
 
 function clearQueue() {
-    socket.send("clear");
+    socket.send('clear');
 }
 
 function getRandomArticle() {
-    socket.send("get");
+    socket.send('get');
 }
 
 function addArticleToQueue() {
@@ -47,9 +60,9 @@ function changeColor(id, color) {
 }
 
 function showFirstPage(show) {
-    document.getElementById("pickerPage").style.display = show ? "inherit" : "none";
-    document.getElementById("addPage").style.display = !show ? "inherit" : "none";
-    document.getElementById("counter").style.display = show ? "inherit" : "none";
-    document.getElementById("pickPageSvg").style.fill = show ? "white" : "#999";
-    document.getElementById("addPageSvg").style.fill = !show ? "white" : "#999";
+    document.getElementById('pickerPage').style.display = show ? 'inherit' : 'none';
+    document.getElementById('addPage').style.display = !show ? 'inherit' : 'none';
+    document.getElementById('counter').style.display = show ? 'inherit' : 'none';
+    document.getElementById('pickPageSvg').style.fill = show ? 'white' : '#999';
+    document.getElementById('addPageSvg').style.fill = !show ? 'white' : '#999';
 }
