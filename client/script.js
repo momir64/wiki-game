@@ -1,4 +1,4 @@
-var socket = new WebSocket('ws://192.168.0.10:8771');
+var socket = new WebSocket('wss://wswiki.moma.rs');
 var firstTimeQueue = true;
 var firstTimeGet = true;
 const separator = '$'
